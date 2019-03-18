@@ -8,3 +8,23 @@ var guesses= 9;                 // want to have an empty array for guessesSoFar 
 var left= 9;
 var guessesSoFar= [];
 var thewinningletter;
+
+//Want to create a function that has the computer create a new letter for the game. 
+    var newGame = function() {
+        thewinningletter = alphabet[Math.floor(Math.random() * alphabet.length)];
+    }
+
+document.onkeyup = function(event){
+    var userGuess = event.key;
+    left--; 
+    guessesSoFar.push(userGuess);
+    guessesLeft();
+    soFar();
+    if (left > 0){
+        if (userGuess == thewinningletter) {
+            wins++; 
+        }
+        
+
+    }
+}
