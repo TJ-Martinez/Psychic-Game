@@ -12,7 +12,7 @@ document.onkeyup = function(event) {
 
     var userGuess = event.key;
 
-    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+    var computerGuess = letters[Math.floor(Math.random() * letters.length)]; //computer will generate random letter from here using lettersArray
 
     var TheRobotschoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
@@ -20,8 +20,8 @@ document.onkeyup = function(event) {
 // use .indexof because indexof allows me to associate each string with a number. This will help me with eliminating letters much easier.  
 // set the computerchoices.indexof(userGuess) to be greater than -1 so that there is no error. I did not know this until I started getting -1 error. 
 
-if (TheRobotschoice.indexOf(userGuess) > -1) {
-
+if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take TheRobotschoiceArray and it'll correspond with the userGuess. So everytime the user keys in a letter then the "if's"
+                                               // will happen.                                                                                                                                                                                             
        if (userGuess === computerGuess) {
            wins++;
            guesses = 9;
@@ -43,6 +43,19 @@ if (TheRobotschoice.indexOf(userGuess) > -1) {
        guessesSoFar = [];
        alert("loser")
 
-       
-   });
+       }
 
+    var html =   // had to look for this online because i did not know how to do the var= html part. 
+   "<h1> Psychic Game </h1>" +
+   "<p>Can you guess what I'm thinking?</p>" +
+   "<p>Wins: " + wins + "</p>" +
+   "<p>Losses: " + losses + "</p>" +
+   "<p>Number of Guesses: " + guesses + "</p>" +
+   "<p>You're about to lose: " + guessesSoFar.join(", ") + "</p>";
+
+   document.querySelector("#game").innerHTML = html;
+
+   
+       }
+
+};
