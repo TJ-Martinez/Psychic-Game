@@ -12,7 +12,7 @@ document.onkeyup = function(event) {
 
     var userGuess = event.key;
 
-    var computerGuess = letters[Math.floor(Math.random() * letters.length)]; //computer will generate random letter from here using lettersArray
+    var CPU = letters[Math.floor(Math.random() * letters.length)]; //computer will generate random letter from here using lettersArray
 
     var TheRobotschoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
@@ -22,7 +22,7 @@ document.onkeyup = function(event) {
 
 if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take TheRobotschoiceArray and it'll correspond with the userGuess. So everytime the user keys in a letter then the "if's"
                                                // will happen.                                                                                                                                                                                             
-       if (userGuess === computerGuess) {
+       if (userGuess === CPU) {
            wins++;
            guesses = 9;
            guessesSoFar = [];
@@ -30,13 +30,14 @@ if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take Th
        }
  
 //Need to create a condition so that when a letter is guessed then it will be pushed to the the guessesSoFar and the # of guesses goes down. 
-       if (userGuess != computerGuess) { 
+       if (userGuess != CPU) { 
            guesses --;
            guessesSoFar.push(userGuess);
 
        }
 
-       if (guesses === 0) {
+       if (guesses === 0) { //So this is where the condition will not only reset the game but will also lower the guesses counter. 
+                            // Set this up to where if the counter hits 0 then the user will lose and the game resets. 
 
        guesses = 9;
        losses ++;
@@ -50,8 +51,8 @@ if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take Th
    "<p>Can you guess what I'm thinking?</p>" +
    "<p>Wins: " + wins + "</p>" +
    "<p>Losses: " + losses + "</p>" +
-   "<p>Number of Guesses: " + guesses + "</p>" +
-   "<p>You're about to lose: " + guessesSoFar.join(", ") + "</p>";
+   "<p>You're about to lose: " + guesses + "</p>" +
+   "<p>Letters Guessed So Far: " + guessesSoFar.join(", ") + "</p>";
 
    document.querySelector("#game").innerHTML = html;
 
