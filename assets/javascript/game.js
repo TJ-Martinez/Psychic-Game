@@ -33,13 +33,13 @@ if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take Th
        }
  
 //Need to create a condition so that when a letter is guessed then it will be pushed to the the guessesSoFar and the # of guesses goes down. 
-       if (userGuess != CPU) { 
+      if (userGuess != CPU) {   // i have learned that != means does not equal. 
            guesses --;
            guessesSoFar.push(userGuess);
 
        }
 
-       if (guesses === 0) { //So this is where the condition will not only reset the game but will also lower the guesses counter. 
+     if (guesses === 0) { //So this is where the condition will not only reset the game but will also lower the guesses counter. 
                             // Set this up to where if the counter hits 0 then the user will lose and the game resets. 
 
        guesses = 9;
