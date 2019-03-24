@@ -18,13 +18,13 @@ document.onkeyup = function(event) {
                           "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
                            "w", "x", "y", "z",];
 
-    // I have decided to go with a conditional approach because it seems a lot clearer to me. Which is why I will be using var TheRobotschoice 
-// use .indexof because indexof allows me to associate each string with a number. This will help me with eliminating letters much easier.  
+    // I have decided to go with a conditional approach because it seems a lot clearer to me. 
+// use .indexof because indexof allows me to associate each string with a number. This will help me with eliminating letters in the array.  
 // set the computerchoices.indexof(userGuess) to be greater than -1 so that there is no error. I did not know this until I started getting -1 error. 
 
 if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take TheRobotschoiceArray and 
                                             //it'll correspond with the userGuess. 
-                                            //So everytime the user keys in a letter then the "if's will happen.                                                                                                                                                                                             
+                                                                                                                                                                                                                                         
        if (userGuess === CPU) {
            wins++;
            guesses = 9;
@@ -39,7 +39,7 @@ if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take Th
 
        }
 
-     if (guesses === 0) { //So this is where the condition will not only reset the game but will also lower the guesses counter. 
+     if (guesses === 0) { //So this is where the condition will reset the game.  
                             // Set this up to where if the counter hits 0 then the user will lose and the game resets. 
 
        guesses = 9;
@@ -49,7 +49,7 @@ if (TheRobotschoice.indexOf(userGuess) > -1) { // so using .indexOf will take Th
 
        }
 
-    var html =   // had to look for this online because i did not know how to do the var= html part. 
+    var html =    
    "<h1> Psychic Game </h1>" +
    "<p>Can you guess what I'm thinking?</p>" +
    "<p>Wins: " + wins + "</p>" +
